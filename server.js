@@ -136,7 +136,8 @@ app.delete("/api/documents/:id", (req, res) => {
     return res.status(500).json({ error: "Could not delete the document." });
   }
 });
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
